@@ -62,6 +62,101 @@ The phases are **iterative**, not strictly linear. For example, experiment resul
 
 ---
 
+## Three nested loops
+
+This methodology is built around three nested levels of iteration:
+
+1. **Project level loop**
+   - Maintained under `research/meta/` in each project.
+   - Captures:
+     - Overall research questions and context.
+     - List of publons (`P1`, `P2`, …) with status and dependencies.
+   - Evolves as new publons are added, split, merged, or abandoned.
+
+2. **Publon level loop**
+
+   Each publon is treated as a first-class unit of work with its own lifecycle:
+
+   - Spec and framing (`P1-spec.md`)
+   - Design and architecture (`P1-design.md`)
+   - Implementation stages (`impl-stages/`)
+   - Experiments (`experiments/`)
+   - Paper skeleton and manuscript (`P1-paper-skeleton.md`, `research/papers/P1-paper.*`)
+
+   The publon loop continues until the contribution is either published or consciously retired.
+
+3. **Inner loops**
+
+   For each publon, there are several inner loops:
+
+   - **Implementation stages** (S1a, S1b, …)
+   - **Experiment batches** (E1a, E1b, …)
+   - **Paper passes** (structure, results integration, polish)
+
+   These loops are short and focused, often completable in hours to a day.
+
+The templates and prompts in this repo are designed to keep these three loops in sync and well-documented.
+
+---
+
+## Publon-first and paper-driven development
+
+The methodology encourages **publon-first, paper-driven development**:
+
+- Start from a **publon spec** (`P1-spec.md`):
+  - A focused claim and motivation.
+  - A minimal system + experiment needed to support the claim.
+  - A target venue style (conference, workshop, internal report, etc.).
+
+- Maintain a **paper skeleton** (`P1-paper-skeleton.md`):
+  - Section headings and bullet points describing intended content.
+  - Mapping from sections → required experiments → required system features.
+
+- Drive implementation and experiments from the publon's needs:
+  - Implementation stages are defined to enable specific figures/tables or analyses.
+  - Experiment batches are designed to answer the questions posed in the publon spec.
+
+This makes it easier to:
+
+- Stop when a least publishable unit is ready.
+- Avoid over-building systems without clear publication value.
+- Keep papers, code, and experiments aligned.
+
+See `docs/ideation-and-publons.md` for more on turning ideas into publons.
+
+---
+
+## Automation boundaries
+
+AI tools like Claude Code can automate large parts of the workflow, but not all of it.
+
+Roughly:
+
+- **Highly automatable**
+  - Maintaining meta-plans and publon specs.
+  - Implementing well-scoped stages with tests.
+  - Generating experiment plans/logs and plots from logs.
+  - Drafting and refactoring paper sections.
+
+- **Partially automatable**
+  - Suggesting good publon candidates and staging plans.
+  - Proposing design alternatives and trade-offs.
+  - Interpreting experimental results and suggesting follow-ups.
+
+- **Human-dominated**
+  - Judging which ideas are worth pursuing or publishing.
+  - High-level research direction and ethics.
+  - Final interpretation and positioning of contributions.
+
+The prompts in this repo are written so that:
+
+- Claude can be **authoritative** for mechanical steps (code edits, tests, diffs).
+- Claude is **advisory** for conceptual steps (idea selection, contribution framing).
+
+Projects can adjust this balance based on their risk tolerance and domain.
+
+---
+
 ## Roles
 
 The methodology is designed so that AI tools (e.g. Claude) can act in three conceptual roles:
@@ -134,6 +229,7 @@ See `docs/naming-conventions.md` and `docs/test-conventions.md` for details.
 2. **In each project repo:**
    - Use the `prompts/` files here as **instruction blocks** for Claude Code.
    - Use the `templates/` files as the basis for project-level files under `research/`.
+   - See also `docs/lifecycle-cheatsheet.md` for a high-level map from tasks to prompts.
 
 3. **Extend locally as needed.**
    - If a project needs extra templates or prompts, add them **in the project repo**, not here.

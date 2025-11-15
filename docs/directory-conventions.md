@@ -11,6 +11,7 @@ Below is the recommended structure.
 ```text
 research/
   meta/
+  ideation/
   publons/
   dev-log/
   papers/
@@ -27,6 +28,18 @@ Project-level planning and context. Typical files:
 
   * Candidate venues, deadlines, and constraints.
 * Other project-wide planning documents as needed.
+
+### `research/ideation/`
+
+Early-stage ideation and publon-discovery notes. Typical files:
+
+- `ideation-log.md`
+  - Chronological log of ideas, questions, and sketches.
+- `candidate-publons.md`
+  - Table or list of potential publons with rough claims and status:
+    - `candidate` / `selected` / `discarded` / `merged`.
+
+This directory captures the **messy, exploratory phase** before publons are fully specified. Once a publon is selected, its concrete spec, design, and lifecycle live under `research/publons/`.
 
 ### `research/publons/`
 
