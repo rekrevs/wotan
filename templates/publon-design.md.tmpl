@@ -1,0 +1,99 @@
+# Publon {{PUBLON_ID}} – Design and Architecture Notes
+
+_Last updated: {{DATE}}_
+
+## 1. Context
+
+Publon:
+
+- ID: {{PUBLON_ID}}
+- Working title: {{PUBLON_WORKING_TITLE}}
+
+Project:
+
+- Name: {{PROJECT_NAME}}
+
+Briefly describe how this publon connects to the overall project and system:
+
+{{PUBLON_CONTEXT}}
+
+## 2. Functional goals
+
+List the main functional goals of this publon from a system perspective:
+
+- {{FUNCTIONAL_GOAL_1}}
+- {{FUNCTIONAL_GOAL_2}}
+- {{FUNCTIONAL_GOAL_3}}
+
+## 3. Non-functional considerations
+
+Non-functional aspects that matter for this publon (if any), e.g.:
+
+- Performance (latency, throughput)
+- Resource usage
+- Determinism / reproducibility
+- Robustness
+- Interpretability
+
+List those that are relevant:
+
+- {{NON_FUNCTIONAL_1}}
+- {{NON_FUNCTIONAL_2}}
+
+## 4. Architecture impact
+
+Describe which parts of the system are affected:
+
+- Existing components to modify:
+  - {{EXISTING_COMPONENT_1}}
+  - {{EXISTING_COMPONENT_2}}
+- New components to introduce:
+  - {{NEW_COMPONENT_1}}
+  - {{NEW_COMPONENT_2}}
+
+Sketch expected interactions (textually; diagrams can be added later):
+
+{{ARCHITECTURE_IMPACT_NOTES}}
+
+## 5. Design choices and options
+
+List key design questions and options considered.
+
+Example format:
+
+- **Question 1:** {{DESIGN_QUESTION_1}}
+  - Option A: {{DESIGN_OPTION_1A}} (pros / cons)
+  - Option B: {{DESIGN_OPTION_1B}} (pros / cons)
+  - Decision (current): {{DESIGN_DECISION_1}}
+
+- **Question 2:** {{DESIGN_QUESTION_2}}
+  - Options and current decision
+
+Use this section as a living record of design trade-offs.
+
+## 6. Open design questions
+
+Design questions intentionally left open, to be resolved during implementation or after preliminary experiments:
+
+- {{OPEN_QUESTION_1}}
+- {{OPEN_QUESTION_2}}
+
+If a question is resolved, move it to the "Design choices and options" section above and record the decision.
+
+## 7. Implementation staging plan (sketch)
+
+High-level plan for implementation stages (`S1a`, `S1b`, …) for this publon.
+
+Example:
+
+- `S1a` – Minimal scaffolding and basic data flow.
+- `S1b` – Core algorithm implementation, simple tests.
+- `S1c` – Integration with existing components, baseline experiments.
+
+Write an initial list, to be refined in stage-specific reports:
+
+{{IMPLEMENTATION_STAGING_NOTES}}
+
+---
+
+_This file is instantiated from the `publon-design.md.tmpl` template. It should be updated as design decisions are made._

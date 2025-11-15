@@ -1,0 +1,88 @@
+# Experiment Batch {{EXPERIMENT_ID}} Plan (Publon {{PUBLON_ID}})
+
+_Last updated: {{DATE}}_
+
+## 1. Purpose and hypothesis
+
+**Publon:** {{PUBLON_ID}} – {{PUBLON_WORKING_TITLE}}
+
+**Experiment ID:** {{EXPERIMENT_ID}}
+
+**Purpose (2–3 sentences)**
+
+{{EXPERIMENT_PURPOSE}}
+
+**Hypothesis / questions**
+
+- H1: {{HYPOTHESIS_1}}
+- H2: {{HYPOTHESIS_2}}
+
+## 2. Setup
+
+### 2.1 System and code
+
+- Relevant modules / components:
+  - {{SYSTEM_COMPONENTS}}
+- Commit or branch to use:
+  - {{CODE_VERSION}}
+
+### 2.2 Datasets / environments
+
+- Datasets / benchmarks:
+  - {{DATASETS}}
+- Simulation or environment settings:
+  - {{ENVIRONMENT_SETTINGS}}
+
+### 2.3 Baselines and variants
+
+- Baseline configurations:
+  - {{BASELINE_CONFIGS}}
+- New or experimental configurations:
+  - {{EXPERIMENTAL_CONFIGS}}
+
+## 3. Metrics
+
+List metrics and how they are computed.
+
+- Primary metric(s):
+  - {{PRIMARY_METRICS}}
+- Secondary metric(s):
+  - {{SECONDARY_METRICS}}
+- Any aggregation / summarisation rules:
+  - {{AGGREGATION_RULES}}
+
+## 4. Protocol
+
+Describe how experiments will be run.
+
+- Seeds / runs per configuration:
+  - {{SEEDS_AND_RUNS}}
+- Hardware / infrastructure:
+  - {{HARDWARE_INFRA}}
+- Commands or scripts:
+  - `{{COMMAND_1}}`
+  - `{{COMMAND_2}}`
+
+If a sweep or grid search is planned, describe parameter ranges.
+
+## 5. Analysis plan
+
+Describe how results will be analysed:
+
+- Tables and plots to produce:
+  - {{TABLES_AND_PLOTS}}
+- Comparisons to baseline:
+  - {{COMPARISON_NOTES}}
+- Expected patterns or sanity checks:
+  - {{EXPECTED_PATTERNS}}
+
+## 6. Risks and contingencies
+
+- Possible failure modes (e.g. training instability, long runtimes):
+  - {{FAILURE_MODES}}
+- Contingency plans (e.g. early stopping, reduced scales):
+  - {{CONTINGENCIES}}
+
+---
+
+_This file is instantiated from the `experiment-plan.md.tmpl` template._

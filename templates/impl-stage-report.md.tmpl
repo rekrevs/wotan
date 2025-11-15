@@ -1,0 +1,99 @@
+# Implementation Stage {{STAGE_ID}} Report (Publon {{PUBLON_ID}})
+
+_Last updated: {{DATE}}_
+
+## 1. Objective
+
+**Stage ID:** {{STAGE_ID}}
+
+**Publon:** {{PUBLON_ID}} – {{PUBLON_WORKING_TITLE}}
+
+**Objective (1–3 sentences)**
+
+{{STAGE_OBJECTIVE}}
+
+## 2. Acceptance criteria
+
+List concrete criteria that define completion for this stage.
+
+- {{CRITERION_1}}
+- {{CRITERION_2}}
+- {{CRITERION_3}}
+
+## 3. Changes made
+
+### 3.1 Code and structure
+
+Summarise changes to code and structure (reference modules, classes, functions):
+
+{{CODE_CHANGES_SUMMARY}}
+
+### 3.2 Tests added / updated
+
+List new or modified tests:
+
+- Unit tests:
+  - {{UNIT_TESTS}}
+- Integration / system tests:
+  - {{INTEGRATION_TESTS}}
+- Runtime assertions / invariants:
+  - {{ASSERTIONS}}
+
+Include paths to test files where helpful.
+
+## 4. Test execution
+
+Document how tests were run and their outcome.
+
+- Commands used:
+  - `{{TEST_COMMAND_1}}`
+  - `{{TEST_COMMAND_2}}`
+- Result:
+  - All tests passed? {{TEST_RESULT_SUMMARY}}
+  - Any tests intentionally skipped? {{SKIPPED_TESTS_NOTES}}
+
+## 5. Design decisions
+
+Record any design decisions made during this stage that are important for later:
+
+- Decision 1:
+  - Description: {{DESIGN_DECISION_1_DESC}}
+  - Rationale: {{DESIGN_DECISION_1_REASON}}
+- Decision 2:
+  - Description: {{DESIGN_DECISION_2_DESC}}
+  - Rationale: {{DESIGN_DECISION_2_REASON}}
+
+If decisions update or resolve items in the publon design doc, reference those sections.
+
+## 6. Known limitations and technical debt
+
+List limitations or debt intentionally left for later stages:
+
+- {{LIMITATION_1}}
+- {{LIMITATION_2}}
+
+Indicate whether each item is:
+
+- Critical before experiments
+- Optional for later refactoring
+- Dependent on other publons
+
+## 7. Checklist and review notes
+
+Refer to the stage review checklist for this stage (see `{{STAGE_CHECKLIST_PATH}}`) and summarise:
+
+- Items flagged during review:
+  - {{CHECKLIST_FLAGS}}
+- Follow-up actions:
+  - {{FOLLOW_UP_ACTIONS}}
+
+## 8. Stage completion status
+
+- Status: `completed` / `in-progress` / `abandoned`
+- Notes on completion or reasons for not completing:
+
+{{COMPLETION_NOTES}}
+
+---
+
+_This file is instantiated from the `impl-stage-report.md.tmpl` template._

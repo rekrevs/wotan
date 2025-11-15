@@ -1,0 +1,71 @@
+# Implementation Stage {{STAGE_ID}} Review Checklist (Publon {{PUBLON_ID}})
+
+Use this checklist after implementing stage {{STAGE_ID}} and running tests.
+
+Mark items as `[x]` when satisfied, `[ ]` otherwise, and add short notes as needed.
+
+## 1. Scope and objectives
+
+- [ ] The implementation corresponds to the stated objective of stage {{STAGE_ID}}.
+- [ ] No major functionality outside the scope of this stage was added.
+- [ ] Any changes to scope are reflected in the stage report.
+
+Notes:
+
+{{CHECK_SCOPE_NOTES}}
+
+## 2. Code clarity and structure
+
+- [ ] New or modified functions/methods are short and cohesive.
+- [ ] Names (modules, classes, functions, variables) are descriptive.
+- [ ] No obvious duplication was introduced; common logic is factored where reasonable.
+- [ ] No unused code, parameters, or configuration options were left in place.
+
+Notes:
+
+{{CHECK_CODE_NOTES}}
+
+## 3. Architectural alignment
+
+- [ ] Changes align with the project's architecture guidelines.
+- [ ] Responsibilities are assigned to appropriate components.
+- [ ] Any deviations from the intended architecture are documented with rationale.
+
+Notes:
+
+{{CHECK_ARCHITECTURE_NOTES}}
+
+## 4. Tests and invariants
+
+- [ ] Unit tests cover the core new/changed functionality.
+- [ ] Integration or system tests exercise end-to-end behaviour relevant to this stage.
+- [ ] Key invariants are enforced via assertions or validation logic.
+- [ ] Tests are deterministic or clearly documented if stochastic behaviour is expected.
+
+Notes:
+
+{{CHECK_TESTS_NOTES}}
+
+## 5. Minimality and non-bloat
+
+- [ ] No generic abstractions were introduced without immediate need.
+- [ ] No configuration options, flags, or extension points were added "just in case".
+- [ ] Any complexity added has a clear justification in the stage objective or design doc.
+
+Notes:
+
+{{CHECK_MINIMALITY_NOTES}}
+
+## 6. Documentation and links
+
+- [ ] The stage report is complete and linked from publon-level documents if needed.
+- [ ] Any relevant parts of `{{PUBLON_ID}}`'s design or spec are updated.
+- [ ] Comments in code are concise and explain *why*, not just *what*.
+
+Notes:
+
+{{CHECK_DOCS_NOTES}}
+
+---
+
+_This file is instantiated from the `impl-stage-review-checklist.md.tmpl` template._

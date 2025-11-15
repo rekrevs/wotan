@@ -1,0 +1,85 @@
+# Experiment Batch {{EXPERIMENT_ID}} Log (Publon {{PUBLON_ID}})
+
+_Last updated: {{DATE}}_
+
+Link to plan: `{{PLAN_FILE_PATH}}`
+
+## 1. Run summary
+
+- Experiment ID: {{EXPERIMENT_ID}}
+- Publon: {{PUBLON_ID}}
+- Code version (commit hash or tag): {{CODE_VERSION}}
+- Date(s) of runs: {{RUN_DATES}}
+- Responsible person / agent: {{RESPONSIBLE}}
+
+## 2. Executed commands
+
+List the actual commands run, scripts used, or job IDs.
+
+- Command 1:
+  - `{{EXEC_COMMAND_1}}`
+- Command 2:
+  - `{{EXEC_COMMAND_2}}`
+
+(Add more as needed.)
+
+## 3. Run details
+
+For each configuration / variant:
+
+- Configuration: {{CONFIG_NAME_1}}
+  - Key parameters: {{CONFIG_PARAMS_1}}
+  - Runs: {{RUN_IDS_1}}
+  - Output location(s): {{OUTPUT_LOCATIONS_1}}
+
+- Configuration: {{CONFIG_NAME_2}}
+  - Key parameters: {{CONFIG_PARAMS_2}}
+  - Runs: {{RUN_IDS_2}}
+  - Output location(s): {{OUTPUT_LOCATIONS_2}}
+
+(Add more as needed.)
+
+## 4. Results (summary)
+
+Summarise key results; detailed tables/plots can be generated separately.
+
+- Main table(s) and figure(s) produced:
+  - {{TABLES_FIGURES}}
+- Key outcomes:
+  - {{KEY_OUTCOME_1}}
+  - {{KEY_OUTCOME_2}}
+
+## 5. Analysis notes
+
+Interpretation of results:
+
+- Did results support the hypotheses?
+  - {{HYPOTHESIS_SUPPORT_SUMMARY}}
+- Notable patterns or anomalies:
+  - {{ANOMALIES_NOTES}}
+- Comparison with baselines:
+  - {{BASELINE_COMPARISON_NOTES}}
+
+## 6. Issues and deviations
+
+- Issues encountered (failures, instability, unexpected behaviours):
+  - {{ISSUES_ENCOUNTERED}}
+- Deviations from the original plan:
+  - {{PLAN_DEVIATIONS}}
+
+## 7. Follow-up actions
+
+List concrete follow-ups:
+
+- {{FOLLOW_UP_1}}
+- {{FOLLOW_UP_2}}
+
+Indicate whether follow-ups are:
+
+- New experiment batches
+- Implementation changes
+- Paper revisions
+
+---
+
+_This file is instantiated from the `experiment-log.md.tmpl` template._
