@@ -43,14 +43,23 @@ Include paths to test files where helpful.
 
 ## 4. Test execution
 
-Document how tests were run and their outcome.
+Document how tests were run and their outcome using the two-tier strategy (see `docs/test-conventions.md`).
 
-- Commands used:
-  - `{{TEST_COMMAND_1}}`
-  - `{{TEST_COMMAND_2}}`
+**Tier 1: Stage-specific tests (fast feedback)**
+
+- Command used:
+  - `{{TIER1_TEST_COMMAND}}`
 - Result:
-  - All tests passed? {{TEST_RESULT_SUMMARY}}
+  - {{TIER1_TEST_RESULT}}
+
+**Tier 2: Cumulative regression tests (quality gate)**
+
+- Command used:
+  - `{{TIER2_TEST_COMMAND}}`
+- Result:
+  - All tests passed? {{TIER2_TEST_RESULT}}
   - Any tests intentionally skipped? {{SKIPPED_TESTS_NOTES}}
+  - Any tests from earlier stages modified? (If yes, explain why in section 3.2)
 
 ## 5. Design decisions
 

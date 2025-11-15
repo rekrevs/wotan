@@ -10,11 +10,35 @@ I will provide:
 
 Your task is to:
 
-1. Define a precise objective and acceptance criteria for the stage.
-2. Create or update stage-specific documents.
-3. Implement the code changes and tests for this stage, keeping changes minimal and well-scoped.
-4. Run tests and perform a code-quality review using a checklist.
-5. Update relevant publon docs and commit.
+1. Review and update the implementation staging plan.
+2. Define a precise objective and acceptance criteria for the stage.
+3. Create or update stage-specific documents.
+4. Design tests for this stage before implementing.
+5. Implement the code changes and tests for this stage, keeping changes minimal and well-scoped.
+6. Run tests (stage-specific and cumulative) and perform a code-quality review using a checklist.
+7. Update relevant publon docs, refine the staging plan, and commit.
+
+---
+
+## Step 0 – Review implementation staging plan
+
+Before starting this stage:
+
+1. Open `research/publons/{{PUBLON_ID}}/{{PUBLON_ID}}-design.md`
+
+2. Review section 7 "Implementation staging plan (sketch)"
+
+3. Check:
+   - Does this stage (`{{STAGE_ID}}`) appear in the plan?
+   - Is its objective still relevant given what you learned from previous stages?
+   - Are there stages listed after this one that need to be added, removed, split, or merged?
+
+4. If the plan needs refinement:
+   - Update section 7 with current understanding
+   - Adjust stage sequence, scope, or objectives as needed
+   - Document why changes were made (e.g., "Split S2a into S2a and S2b after discovering X complexity")
+
+**Planning is iterative:** The staging plan is a living document that evolves as implementation progresses.
 
 ---
 
@@ -26,7 +50,7 @@ Your task is to:
 
 2. Inspect:
    - `{{PUBLON_ID}}-spec.md`
-   - `{{PUBLON_ID}}-design.md`
+   - `{{PUBLON_ID}}-design.md` (including updated staging plan from Step 0)
    - Any existing stage reports under `impl-stages/`.
 
 Use this context to refine the stage objective.
@@ -65,18 +89,25 @@ Use templates from `../research-methodology/templates/`.
 
 ## Step 3 – Plan tests for this stage
 
-Before significant code changes, plan tests:
+Before significant code changes, plan tests following `docs/test-conventions.md`:
 
-1. Identify which functions/modules will be affected.
-2. Decide:
-   - New unit tests needed.
-   - Existing integration tests to extend or adjust.
-   - Runtime assertions/invariants to add.
+1. **Identify test locations:**
+   - Stage-specific tests: `tests/stages/{{STAGE_ID}}/`
+   - Integration tests to update: `tests/integration/`
+   - Shared fixtures/helpers: `tests/fixtures/`
 
-Update the stage report's sections for:
+2. **Plan three categories of tests:**
+   - **Unit tests:** For individual functions/classes changed in this stage
+   - **Integration tests:** End-to-end scenarios exercising new behavior
+   - **Runtime assertions:** Invariants to add in production code
 
-- Tests added / updated
-- Intended test commands (you can refine later).
+3. **Decide on determinism expectations:**
+   - Will tests be deterministic (exact equality) or statistical (distributions/ranges)?
+   - Document this in the stage report
+
+4. **Update the stage report** sections:
+   - "Tests added / updated" – list planned test files
+   - "Test execution" – note intended commands (refine after implementation)
 
 ---
 
@@ -97,22 +128,41 @@ Keep the changes cohesive and minimal.
 
 ---
 
-## Step 5 – Run tests
+## Step 5 – Run tests (two tiers)
 
-1. Run tests specific to this stage:
+Follow the two-tier testing strategy from `docs/test-conventions.md`:
 
-   - Unit tests covering the changed code.
-   - Any stage-specific integration tests.
+### Tier 1: Stage-Specific Tests (Fast Feedback)
 
-2. Run the relevant subset of project tests (at least publon-related tests and key integration tests).
+Run only tests for the current stage to get fast feedback:
 
-3. Record in the stage report:
+```bash
+# Example (adjust for your test framework)
+pytest tests/stages/{{STAGE_ID}}/ -v
+```
 
-   - Commands used.
-   - Results.
-   - Any tests skipped or temporarily disabled (with reasons).
+Fix failures before proceeding.
 
-Fix test failures or adjust tests only when behaviour changes are justified and documented.
+### Tier 2: Cumulative Regression Tests (Quality Gate)
+
+Before marking the stage complete, run **all tests up to and including this stage**:
+
+```bash
+# Example: run all stages up to {{STAGE_ID}} plus integration tests
+pytest tests/stages/S1a/ tests/stages/S1b/ ... tests/stages/{{STAGE_ID}}/ tests/integration/ -v
+```
+
+**Stage completion requirement:** All Tier 2 tests must pass.
+
+### Document in Stage Report
+
+Record in section 4 "Test execution":
+
+- Exact commands used for both tiers
+- Test results (all passed, or reasons for skipped tests)
+- Any tests from earlier stages that required updating (explain why in section 3.2)
+
+If tests fail, either fix the code or adjust tests with clear justification documented in the stage report.
 
 ---
 
@@ -144,14 +194,41 @@ If this stage resolves or updates design decisions:
 
 ---
 
-## Step 8 – Commit
+## Step 8 – Refine the staging plan for future stages
+
+After completing this stage, you have learned something about the system. Use that knowledge to refine the plan:
+
+1. Open `research/publons/{{PUBLON_ID}}/{{PUBLON_ID}}-design.md` section 7 "Implementation staging plan"
+
+2. Update the plan:
+   - Mark `{{STAGE_ID}}` as completed
+   - Adjust remaining stages based on what you learned:
+     - **Split** stages that turned out more complex than expected
+     - **Merge** stages if scope was smaller than anticipated
+     - **Add** new stages if you discovered unforeseen work
+     - **Remove** stages that are no longer needed
+     - **Reorder** stages if dependencies changed
+
+3. Keep the plan lightweight:
+   - 1-line objective per future stage
+   - No need to plan every detail; plan 2-5 stages ahead at most
+   - The plan will be refined again after the next stage
+
+4. Document major changes:
+   - If you significantly revised the plan, note why in the current stage report under "Known limitations and technical debt" or as a separate note
+
+**Iterative planning is key:** The staging plan evolves as you implement. This is expected and healthy.
+
+---
+
+## Step 9 – Commit
 
 1. Ensure there are no remaining `{{…}}` placeholders in the new / modified docs.
 2. Stage:
    - Code changes.
-   - Test changes.
+   - Test changes (including new test directories under `tests/stages/{{STAGE_ID}}/`).
    - Stage report and checklist.
-   - Any publon spec/design updates.
+   - Any publon spec/design updates (including refined staging plan).
 
 3. Commit with a message like:
 
@@ -161,7 +238,7 @@ If this stage resolves or updates design decisions:
 
 ---
 
-## Step 9 – Summary
+## Step 10 – Summary
 
 Print a short summary including:
 

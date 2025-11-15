@@ -48,6 +48,7 @@ Each publon goes through some or all of the following phases:
 3. **Implementation**
    - Make scoped changes to the codebase in small implementation stages.
    - Maintain high test coverage and clean architecture.
+   - Follow iterative staging plan that evolves as implementation progresses.
 
 4. **Experiments & analysis**
    - Define experiment plans, metrics, baselines.
@@ -100,11 +101,27 @@ There are three nested levels of iteration:
    - Contains spec, design, implementation stage reports, experiment folders, and a paper skeleton.
 
 3. **Inner loops**
-   - Implementation stages: small, test-driven increments.
+   - Implementation stages: small, test-driven increments organized into major and minor stages.
    - Experiment batches: planned runs with logs and analyses.
    - Paper passes: structured passes over the manuscript.
 
 The templates and prompts in this repo are organised around these levels.
+
+### Implementation stages in detail
+
+Implementation stages use a two-level hierarchy:
+
+- **Major stages** group related functionality (e.g., S1 = basic system, S2 = add realism, S3 = optimization)
+- **Minor stages** are atomic units of work (e.g., S1a, S1b, S1c)
+
+Each minor stage:
+
+- Has a clear, small objective (completable in hours to a day)
+- Adds tests in three categories: unit, integration, and runtime assertions
+- Is tested using a two-tier strategy (stage-specific + cumulative regression)
+- Updates the staging plan based on what was learned
+
+See `docs/naming-conventions.md` and `docs/test-conventions.md` for details.
 
 ---
 

@@ -20,28 +20,91 @@ Consistent naming makes it easier for AI tools and humans to coordinate work acr
 
 ## Implementation stages
 
-Implementation stages are **small, incremental development steps** within a publon.
+Implementation stages are **small, incremental development steps** within a publon, organized into a two-level hierarchy:
 
-- Each stage has an ID: `S<k><suffix>`:
-  - `<k>`: an integer for the broad implementation milestone within the publon (`1`, `2`, `3`, …).
-  - `<suffix>`: a lowercase letter (`a`, `b`, `c`, …) identifying minor steps within that milestone.
+- **Major stages** (identified by the numeric part `<k>`)
+- **Minor stages** (identified by the full ID `S<k><suffix>`)
 
-Examples:
+### Stage ID Format
 
-- `S1a`, `S1b`, `S1c` – three small implementation stages for the first milestone.
-- `S2a`, `S2b` – stages for the second milestone.
+Each stage has an ID: `S<k><suffix>`:
+
+- `<k>`: an integer for the **major implementation theme** within the publon (`1`, `2`, `3`, …)
+- `<suffix>`: a lowercase letter (`a`, `b`, `c`, …) for **atomic development steps** within that theme
+
+### Major vs. Minor Stages
+
+**Major stages** represent significant implementation themes or milestones:
+
+- They group related functionality or architectural components
+- They correspond to coherent phases of system development
+- They are **not** separate commits; they are organizational concepts
+
+Examples of major stage themes:
+
+- Major stage 1: Minimal system scaffold
+- Major stage 2: Add realism (network simulation, edge infrastructure)
+- Major stage 3: Add intelligence (ML models, placement algorithms)
+- Major stage 4: Optimization and scalability
+
+**Minor stages** are the **actual units of work** and correspond to individual commits:
+
+- Each is small enough to implement, test, and review in one sitting
+- Each should be completable in hours to at most a day
+- Each produces one clean commit (or small set of related commits)
+- Each has its own stage report and review checklist
+
+### Examples
+
+**Scenario: Implementing a distributed simulation system**
+
+- `S1a` – Create event queue and coordinator scaffold
+- `S1b` – Add basic node abstraction
+- `S1c` – Implement deterministic time advancement
+- *(Major stage 1 = minimal working system)*
+
+- `S2a` – Integrate network simulator interface
+- `S2b` – Bridge nodes to network simulation
+- `S2c` – Add realistic latency and topology
+- *(Major stage 2 = add network realism)*
+
+- `S3a` – Add Docker-based edge container support
+- `S3b` – Implement resource monitoring
+- *(Major stage 3 = add edge infrastructure)*
+
+### Stage Files
 
 Stage files are stored under:
 
 ```text
 research/publons/P1/impl-stages/S1a-report.md
 research/publons/P1/impl-stages/S1a-review-checklist.md
+research/publons/P1/impl-stages/S1b-report.md
+research/publons/P1/impl-stages/S1b-review-checklist.md
+...
 ```
 
-The exact semantics of the numeric part (`1`, `2`, …) are project-dependent, but typically:
+### Planning Major Stages
 
-* The number groups a set of related code changes or features.
-* The letter distinguishes atomic commits or work units.
+The numeric part `<k>` should be decided when planning the publon's implementation:
+
+1. Identify 2–5 major themes or milestones for the publon
+2. Assign each theme a number (`1`, `2`, `3`, …)
+3. Sketch initial minor stages (`a`, `b`, `c`, …) for the first 1–2 major stages
+4. Refine the list of minor stages iteratively as implementation progresses
+
+The staging plan lives in `research/publons/{PUBLON_ID}/{PUBLON_ID}-design.md` section 7 and should be updated after each minor stage is completed.
+
+### Flexibility
+
+Projects have flexibility in how they define major stage boundaries:
+
+- **Architectural layers:** S1 = data model, S2 = logic, S3 = API
+- **Feature sets:** S1 = basic simulation, S2 = monitoring, S3 = placement
+- **Capability levels:** S1 = deterministic, S2 = realistic, S3 = optimized
+- **Milestones:** S1 = M0 POC, S2 = M1 with network, S3 = M2 with edge
+
+The key is to keep major stages **conceptually coherent** and minor stages **small and atomic**.
 
 ---
 

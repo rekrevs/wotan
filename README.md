@@ -34,4 +34,5 @@ See:
 - `docs/methodology-overview.md` for a conceptual overview.
 - `docs/directory-conventions.md` for per-project directory layout.
 - `docs/naming-conventions.md` for publon / stage / experiment naming.
+- `docs/test-conventions.md` for test organization and execution strategies.
 - `docs/multi-agent-delegation.md` for coordinating multiple Claude Code instances across environments.

@@ -84,15 +84,45 @@ If a question is resolved, move it to the "Design choices and options" section a
 
 High-level plan for implementation stages (`S1a`, `S1b`, …) for this publon.
 
-Example:
+**This plan is iterative:** It will be refined after each minor stage is completed. Plan only 2-5 stages ahead in detail.
 
-- `S1a` – Minimal scaffolding and basic data flow.
-- `S1b` – Core algorithm implementation, simple tests.
-- `S1c` – Integration with existing components, baseline experiments.
+### Major stage themes
 
-Write an initial list, to be refined in stage-specific reports:
+Identify 2-5 major implementation themes (see `docs/naming-conventions.md`):
 
-{{IMPLEMENTATION_STAGING_NOTES}}
+- **Major stage 1:** {{MAJOR_STAGE_1_THEME}}
+- **Major stage 2:** {{MAJOR_STAGE_2_THEME}}
+- **Major stage 3:** {{MAJOR_STAGE_3_THEME}} (if applicable)
+
+### Planned minor stages
+
+**Major stage 1: {{MAJOR_STAGE_1_THEME}}**
+
+- `S1a` – {{STAGE_S1A_OBJECTIVE}}
+- `S1b` – {{STAGE_S1B_OBJECTIVE}}
+- `S1c` – {{STAGE_S1C_OBJECTIVE}} (if applicable)
+- *(Add more as needed)*
+
+**Major stage 2: {{MAJOR_STAGE_2_THEME}}**
+
+- `S2a` – {{STAGE_S2A_OBJECTIVE}} (initial sketch; will refine after S1 completes)
+- `S2b` – {{STAGE_S2B_OBJECTIVE}} (tentative)
+- *(Details to be refined after major stage 1)*
+
+**Major stage 3+:** *(To be planned after major stage 2)*
+
+### Staging plan evolution log
+
+Track major changes to the plan as implementation progresses:
+
+- **{{DATE}}:** Initial plan created
+- *(After each stage, note significant plan changes here)*
+
+Example entries:
+
+- **2025-02-15 (after S1b):** Split S1c into S1c and S1d due to complexity of integration layer
+- **2025-02-20 (after S2a):** Merged S2b and S2c; scope was smaller than expected
+- **2025-02-25 (after S2b):** Added new S2d to handle edge case discovered during testing
 
 ---
 
