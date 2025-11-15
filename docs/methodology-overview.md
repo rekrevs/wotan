@@ -79,6 +79,12 @@ The methodology is designed so that AI tools (e.g. Claude) can act in three conc
 
 In practice, the same AI agent can switch roles depending on the instruction prompts used.
 
+### Multiple agents and environments
+
+For projects that require different development environments (e.g., Docker testing, GPU access, different operating systems), the methodology supports a **multi-agent delegation pattern** where multiple Claude Code instances coordinate via git.
+
+See `docs/multi-agent-delegation.md` for details on task delegation between agents.
+
 ---
 
 ## Levels of iteration
